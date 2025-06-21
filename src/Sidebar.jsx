@@ -6,7 +6,7 @@ const Sidebar = () => {
   ]
 
   return (
-    <div className="w-120 h-full bg-white flex flex-col">
+    <div className="w-80 h-full bg-grey flex flex-col border-r border-gray-200">
       {/* Header Profile */}
       <div className="p-4 border-b bg-green-600 text-white font-semibold">
         Yayasan Darul Hijrah
@@ -17,7 +17,7 @@ const Sidebar = () => {
         {chats.map((chat) => (
           <div
             key={chat.id}
-            className="px-4 py-3 hover:bg-gray-100 cursor-pointer"
+            className={`m-4 rounded-full px-4 py-3 hover:bg-white text-left cursor-pointer ${isDisabled ? 'pointer-events-none bg-white/50' : 'bg-white/70'}`}
           >
             <div className="font-medium">{chat.name}</div>
             <div className="text-sm text-gray-500 truncate">
