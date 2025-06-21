@@ -1,4 +1,29 @@
-export default function Login() {
+import { useState } from 'react'
+import axios from 'axios'
+
+export default function Login({ onLoginSuccess }) {
+    const [input, setInput] = useState('') // menyimpan username/email
+    const [loading, setLoading] = useState(false)
+
+    const handleLogin = async () => {
+        if (!input.trim()) return alert('Input tidak boleh kosong')
+
+        try {
+            setLoading(true)
+            const res = await axios.post('http://localhost:3000/api/auth/login', {
+                email: input, // kamu bisa sesuaikan ini untuk username/email
+                password: 'dummy' // placeholder jika nanti mau tambah password
+            })
+
+            localStorage.setItem('token', res.data.token)
+            if (onLoginSuccess) onLoginSuccess()
+        } catch (err) {
+            alert(err.response?.data?.message || 'Login gagal')
+        } finally {
+            setLoading(false)
+        }
+    }
+
     return (
         <div className="min-h-screen w-full flex flex-col items-center justify-center bg-white px-4">
             <h1 className="text-2xl font-semibold mb-6 text-gray-800">
@@ -25,24 +50,29 @@ export default function Login() {
                     berkas santri
                 </span>
             </div>
+
             <div className="flex flex-row items-center gap-2 p-3 mt-4">
                 <input
                     type="text"
                     onChange={(e) => setInput(e.target.value)}
+                    value={input}
                     placeholder="Masukkan username atau email"
                     className="flex px-4 py-2 rounded-full bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 resize-none overflow-hidden text-md"
-                    rows={1}
                 />
                 <button
+                    onClick={handleLogin}
                     className="text-green-600 hover:text-green-700"
                     title="Kirim"
+                    disabled={loading}
                 >
-                    {/* Ikon kirim pakai Unicode atau bisa ganti SVG */}
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        strokeWidth={1.5} stroke="currentColor" className="size-6">
+                        <path strokeLinecap="round" strokeLinejoin="round"
+                            d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 
+              59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
                     </svg>
                 </button>
             </div>
         </div>
-    );
+    )
 }

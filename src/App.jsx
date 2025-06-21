@@ -8,13 +8,17 @@ const App = () => {
   const [showSidebar, setShowSidebar] = useState(false)
   const [messages, setMessages] = useState([])
   const [showLogin, setLogin] = useState(true);
-
   const [input, setInput] = useState('')
 
   const sendMessage = () => {
     if (input.trim() === '') return
     setInput('')
     setMessages([...messages, { id: Date.now(), text: input, sender: 'me' }])
+  }
+
+  const handleLoginSuccess = () => {
+    setShowLogin(false)
+    setShowSidebar(true)
   }
 
   return (
@@ -24,7 +28,7 @@ const App = () => {
       <div className="flex flex-col flex-1 bg-white">
         {showLogin && (
           <div className="fixed inset-0 z-50 bg-gray-100 flex items-center justify-center">
-            <Login />
+            <Login onLoginSuccess={handleLoginSuccess} />
           </div>
         )}
         <div className="w-full h-full flex flex-col bg-white">
