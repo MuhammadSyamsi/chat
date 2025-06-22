@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { useState } from 'react'
 import axios from 'axios'
 
@@ -24,6 +25,17 @@ export default function Login({ onLoginSuccess }) {
         }
     }
 
+=======
+import {
+    LockClosedIcon,
+    BanknotesIcon,
+    ExclamationCircleIcon,
+    UsersIcon,
+    FolderOpenIcon
+} from '@heroicons/react/24/outline';
+
+export default function Login() {
+>>>>>>> Stashed changes
     return (
         <div className="min-h-screen w-full flex flex-col items-center justify-center bg-white px-4">
             <h1 className="text-2xl font-semibold mb-6 text-gray-800">
@@ -31,25 +43,28 @@ export default function Login({ onLoginSuccess }) {
             </h1>
 
             <div className="flex flex-wrap justify-center gap-2">
-                <span className="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">
-                    lupa password
-                </span>
-                <span className="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">
-                    laporan tunggakan
-                </span>
-                <span className="bg-yellow-100 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full">
-                    laporan PSB
-                </span>
-                <span className="bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full">
+                <button type="button" className="flex bg-gray-100 text-sm font-medium px-6 py-2 rounded-full hover:bg-green-200 transition">
+                    <LockClosedIcon className="mr-2 w-4" />
+                    Lupa password
+                </button>
+                <button type="button" className="flex bg-gray-100 text-sm font-medium px-6 py-2 rounded-full hover:bg-green-200 transition">
+                    <ExclamationCircleIcon className="mr-2 w-4" />
+                    tunggakan
+                </button>
+                <button type="button" className="flex bg-gray-100 text-sm font-medium px-6 py-2 rounded-full hover:bg-green-200 transition">
+                    <BanknotesIcon className="mr-2 w-4" />
                     pembayaran
-                </span>
-                <span className="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">
+                </button>
+                <button type="button" className="flex bg-gray-100 text-sm font-medium px-6 py-2 rounded-full hover:bg-green-200 transition">
+                    <UsersIcon className="mr-2 w-4" />
                     data santri
-                </span>
-                <span className="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">
+                </button>
+                <button type="button" className="flex bg-gray-100 text-sm font-medium px-6 py-2 rounded-full hover:bg-green-200 transition">
+                    <FolderOpenIcon className="mr-2 w-4" />
                     berkas santri
-                </span>
+                </button>
             </div>
+<<<<<<< Updated upstream
 
             <div className="flex flex-row items-center gap-2 p-3 mt-4">
                 <input
@@ -72,6 +87,16 @@ export default function Login({ onLoginSuccess }) {
               59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
                     </svg>
                 </button>
+=======
+            <div className="w-1/2 flex flex-row items-center gap-2 p-3 mt-4">
+                <input
+                    type="text"
+                    onChange={(e) => setInput(e.target.value)}
+                    placeholder="Masukkan username"
+                    className="flex-grow px-4 py-4 outline-1 outline-neutral-400 rounded-2xl bg-gray-50 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 text-md"
+                    rows={1}
+                />
+>>>>>>> Stashed changes
             </div>
         </div>
     )
