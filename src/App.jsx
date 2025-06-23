@@ -3,6 +3,22 @@ import './App.css'
 import ChatMessage from './ChatMessage'
 import Sidebar from './Sidebar'
 import Login from './login'
+import axios from 'axios';
+
+axios.get('http://localhost:3000/api/test-db')
+  .then(response => console.log(response.data))
+  .catch(error => console.error('Gagal konek ke API/database:', error));
+
+
+const testKoneksi = async () => {
+  try {
+    const res = await axios.get('http://localhost:3000/api/test-db');
+    alert('Sukses: ' + res.data.message);
+  } catch (err) {
+    alert('Gagal koneksi ke database');
+    console.error(err);
+  }
+};
 
 const App = () => {
   const [showSidebar, setShowSidebar] = useState(false)
@@ -30,6 +46,9 @@ const App = () => {
         {showLogin && (
           <div className="fixed inset-0 z-50 bg-gray-100 flex items-center justify-center">
             <Login onLoginSuccess={handleLoginSuccess} />
+            <button onClick={testKoneksi} className="bg-green-500 text-white px-4 py-2 rounded">
+              Cek Koneksi DB
+            </button>
           </div>
         )}
         <div className="w-full h-full flex flex-col bg-white">
