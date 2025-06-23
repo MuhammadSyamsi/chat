@@ -7,12 +7,8 @@ import Login from './login'
 const App = () => {
   const [showSidebar, setShowSidebar] = useState(false)
   const [messages, setMessages] = useState([])
-<<<<<<< Updated upstream
-  const [showLogin, setLogin] = useState(true);
-=======
   const [showLogin, setLogin] = useState(true)
 
->>>>>>> Stashed changes
   const [input, setInput] = useState('')
 
   const sendMessage = () => {
@@ -32,13 +28,8 @@ const App = () => {
 
       <div className="flex flex-col flex-1 bg-white">
         {showLogin && (
-<<<<<<< Updated upstream
           <div className="fixed inset-0 z-50 bg-gray-100 flex items-center justify-center">
             <Login onLoginSuccess={handleLoginSuccess} />
-=======
-          <div className="fixed inset-0 z-50 bg-white flex items-center justify-center">
-            <Login />
->>>>>>> Stashed changes
           </div>
         )}
         <div className="w-full h-full flex flex-col bg-white">
