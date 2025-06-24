@@ -5,9 +5,9 @@ import Sidebar from './Sidebar'
 import Login from './login'
 import axios from 'axios';
 
-axios.get('http://localhost:3000/api/test-db')
-  .then(response => console.log(response.data))
-  .catch(error => console.error('Gagal konek ke API/database:', error));
+// axios.get('http://localhost:3000/api/test-db')
+//   .then(response => console.log(response.data))
+//   .catch(error => console.error('Gagal konek ke API/database:', error));
 
 
 const testKoneksi = async () => {
