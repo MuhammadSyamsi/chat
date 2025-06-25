@@ -66,16 +66,37 @@ export default function Login({ onLoginSuccess }) {
                     berkas santri
                 </button>
             </div>
-            <div className="w-4/5 flex flex-row items-center gap-2 p-3 mt-4">
-                <input
-                    type="text"
-                    onChange={(e) => setInput(e.target.value)}
-                    value={input}
-                    onKeyDown={handleKeyDown}
-                    placeholder="Masukkan username"
-                    className="flex-grow px-4 py-4 outline-1 outline-neutral-400 rounded-2xl bg-gray-50 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 text-md"
-                    rows={1}
-                />
+            {/* <div className="w-full px-4 py-3 bg-white fixed bottom-0 shadow-inner">
+  <div className="flex items-center gap-2">
+    <input
+      type="text"
+      value={input}
+      onChange={(e) => setInput(e.target.value)}
+      onKeyDown={handleKeyDown}
+      placeholder="Tulis pesan..."
+      className="flex-grow px-4 py-3 rounded-full bg-gray-100 shadow-sm text-sm focus:outline-none focus:ring-2 focus:ring-green-600"
+    />
+    <button
+      onClick={sendMessage}
+      className="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition"
+    >
+      Kirim
+    </button>
+  </div>
+</div> */}
+
+            <div className="w-full px-4 py-3 bg-white fixed bottom-0 shadow-inner">
+                <div className="flex items-center gap-2">
+                    <input
+                        type="text"
+                        onChange={(e) => setInput(e.target.value)}
+                        value={input}
+                        onKeyDown={handleKeyDown}
+                        placeholder="Masukkan username"
+                        className="flex-grow px-4 py-4 outline-1 outline-neutral-400 rounded-2xl bg-gray-50 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 text-md"
+                        rows={1}
+                    />
+                </div>
             </div>
         </div>
     )
